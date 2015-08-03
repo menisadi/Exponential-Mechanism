@@ -1,14 +1,15 @@
-import javafx.print.Collation;
+/**
+ * Created by meni on 03/08/15.
+ */
+
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
-/**
- * Created by meni on 03/08/15.
- */
+
 
 public class Tests {
 
@@ -39,4 +40,9 @@ public class Tests {
         assertEquals(1, quality);
     }
 
+    @Test
+    public void testIntegration() {
+        double result = MathTools.integrate(Math::sin, 0, Math.PI, 30);
+        assertEquals(2, result, 0.001);
+    }
 }

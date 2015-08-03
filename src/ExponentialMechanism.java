@@ -21,6 +21,7 @@ public class ExponentialMechanism {
 
     public static double privateExpotToDouble(ArrayList<Double> dataSet, Quality q) {
         Random randomGenerator = new Random();
+
         double result;
                 /* TODO */
         return 0;
@@ -29,7 +30,18 @@ public class ExponentialMechanism {
     public static void main(String[] args) {
         QualityDoubleRange meanQuality = (s, x) -> {
             Collections.sort(s);
-            return Collections.binarySearch(s,x);
+            int less = Collections.binarySearch(s, x);
+            int more = s.size() - less;
+            if (s.contains(x)) {
+                less++;
+            }
+            else {
+                less = less * (-1) - 1;
+                more = s.size() - less;
+            }
+            return Math.abs(more - less);
         };
+
+
     }
 }

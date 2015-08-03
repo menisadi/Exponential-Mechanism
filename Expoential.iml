@@ -18,5 +18,17 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$APPLICATION_HOME_DIR$/lib/commons-math3-3.5" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="file://$APPLICATION_HOME_DIR$/lib/commons-math3-3.5/docs/apidocs" />
+        </JAVADOC>
+        <SOURCES />
+        <jarDirectory url="file://$APPLICATION_HOME_DIR$/lib/commons-math3-3.5" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
