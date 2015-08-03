@@ -4,5 +4,5 @@
 import java.util.*;
 
 public interface Quality {
-    double qualify(ArrayList<Double> data, Set<Double> outputs);
+    double qualify(ArrayList<Double> data, Set<Double> outputs, Double output);
 }
