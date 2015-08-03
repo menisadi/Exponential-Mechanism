@@ -42,7 +42,11 @@ public class Tests {
 
     @Test
     public void testIntegration() {
-        double result = MathTools.integrate(Math::sin, 0, Math.PI, 30);
-        assertEquals(2, result, 0.001);
+        System.out.println("\ntesting integration function");
+        System.out.println("function:" + "abs");
+        System.out.println("interval: ["+(-1)+","+1+"]");
+        System.out.println("no. of sub-intervals: " + 50);
+        double result = MathTools.integrate(Math::abs, -1, 1, 50);
+        assertEquals(1, result, 0.001);
     }
 }

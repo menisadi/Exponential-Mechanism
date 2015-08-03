@@ -2,9 +2,8 @@
  * Created by meni on 02/08/15.
  */
 
-import org.junit.Test;
-
 import java.util.*;
+import java.util.function.DoubleUnaryOperator;
 
 
 public class ExponentialMechanism {
@@ -19,8 +18,15 @@ public class ExponentialMechanism {
     }
     */
 
-    public static double privateExpotToDouble(ArrayList<Double> dataSet, Quality q) {
+    public static double privateExpotToDouble(ArrayList<Double> dataSet, QualityDoubleRange q, Double eps) {
         Random randomGenerator = new Random();
+
+        DoubleUnaryOperator toIntegrate = (z) -> {
+            return Math.exp(eps*q.qualify(dataSet,z));
+        };
+        Double normalizator = MathTools.integrate(toIntegrate,0,1,50);
+
+
 
         double result;
                 /* TODO */
@@ -28,7 +34,7 @@ public class ExponentialMechanism {
     }
 
     public static void main(String[] args) {
-        QualityDoubleRange meanQuality = (s, x) -> {
+        QualityDoubleRange meanQuality = (Double s, Double x) -> {
             Collections.sort(s);
             int less = Collections.binarySearch(s, x);
             int more = s.size() - less;
@@ -39,7 +45,7 @@ public class ExponentialMechanism {
                 less = less * (-1) - 1;
                 more = s.size() - less;
             }
-            return Math.abs(more - less);
+            return (-1)*(Math.abs(more - less)/2);
         };
 
 
