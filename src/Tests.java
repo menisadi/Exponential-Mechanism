@@ -13,27 +13,30 @@ import static org.junit.Assert.assertEquals;
 public class Tests {
 
     @Test
-    public void testMeanQUality() {
-        System.out.println("testing qualit function for mean aproximation");
-        ArrayList<Double> testArray = new ArrayList<Double>();
+    public void testMeanQuality() {
+        System.out.println("testing quality function for mean approximation");
+
+        ArrayList<Double> testArray = new ArrayList<>();
         testArray.add(0.97);testArray.add(0.15); testArray.add(0.71); testArray.add(0.22);
         testArray.add(0.8); testArray.add(0.17); testArray.add(0.34);
-        Double testCase = new Double(0.15);
-        System.out.println("Arra: " + testArray.toString());
-        System.out.println("test case: " + testCase);
+        Double testCase = 0.3;
 
         Collections.sort(testArray);
+
+        System.out.println("Array: " + testArray.toString());
+        System.out.println("test case: " + testCase);
+
         int less = Collections.binarySearch(testArray, testCase);
         int more = testArray.size() - less;
         if (testArray.contains(testCase)) {
             less++;
-
         }
         else {
             less = less * (-1) - 1;
+            more = testArray.size() - less;
         }
         int quality = Math.abs(more - less);
-        assertEquals(4, less);
+        assertEquals(1, quality);
     }
 
 }
