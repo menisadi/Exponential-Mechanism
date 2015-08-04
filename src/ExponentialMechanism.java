@@ -34,7 +34,7 @@ public class ExponentialMechanism {
     }
 
     public static void main(String[] args) {
-        QualityDoubleRange meanQuality = (Double s, Double x) -> {
+        QualityDoubleRange meanQuality = (ArrayList<Double> s, Double x) -> {
             Collections.sort(s);
             int less = Collections.binarySearch(s, x);
             int more = s.size() - less;
@@ -47,7 +47,6 @@ public class ExponentialMechanism {
             }
             return (-1)*(Math.abs(more - less)/2);
         };
-
-
     }
+
 }
